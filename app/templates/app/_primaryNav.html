@@ -1,0 +1,38 @@
+<nav class="navbar is-primary">
+    <div class="container">
+        
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{ url_for('home') }}">bookie</a>
+        </div>
+        
+        <div class="navbar-menu is-active">
+            
+            <div class="navbar-start">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">Bookmarks</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{{ url_for('bookmark.index') }}">List</a>
+                        <a class="navbar-item" href="{{ url_for('bookmark.popular') }}">Popular</a>
+                        <a class="navbar-item" href="{{ url_for('bookmark.add') }}">Add</a>
+                    </div>
+                </div>
+                <a class="navbar-item" href="{{ url_for('debug') }}">Debug</a>
+            </div>
+            
+            <div class="navbar-end">
+                <form class="navbar-item" action="{{ url_for('bookmark.search') }}" method="get">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input class="input" type="text" id="q" name="q">
+                        </div>
+                        <div class="control">
+                            <button class="button is-info" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        
+    </div>
+</nav>

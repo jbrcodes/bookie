@@ -1,0 +1,56 @@
+{% if form.errors %}
+    <ul class="errors">
+        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if bookmarkId is defined %}
+    {% set actionUrl = url_for('bookmark.edit', id=bookmarkId) %}
+{% else %}
+    {% set actionUrl = url_for('bookmark.add') %}
+{% endif %}
+
+<form action="{{ actionUrl }}" method="post">
+
+    <div class="field">
+        <label class="label" for="title">{{ form.title.label }}</label>
+        <div class="control">
+            {{ form.title(class="input") }}
+        </div>  
+    </div>
+
+    <div class="field">
+        <label class="label" for="url">{{ form.url.label }}</label>
+        <div class="control">
+            {{ form.url(class="input") }}
+        </div>  
+    </div>
+    
+    <div class="field">
+        <label class="label" for="note">{{ form.note.label }}</label>
+        <div class="control">
+            {{ form.note(class="input") }}
+        </div>  
+    </div>
+    
+    <div class="field">
+        <label class="label" for="tags">{{ form.tags.label }}</label>
+        <div class="control">
+            {{ form.tags(class="jbr-tag-field") }}
+        </div>  
+    </div>
+    
+    <div class="field is-grouped">
+        <div class="control">
+            <button class="button is-link" type="submit">Save</button>
+        </div>
+        <div class="control">
+            <a class="button is-light" href="{{ url_for('bookmark.index') }}">Cancel</a>
+        </div>
+    </div>
+    
+</form>

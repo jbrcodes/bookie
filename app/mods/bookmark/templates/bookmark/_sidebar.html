@@ -1,0 +1,6 @@
+<div id="sidebar">
+    <h2>Tags</h2>
+    {% set tagList = findAllTags() %}
+    {% set urlPat = url_for('bookmark.tag', name='zzz') %}
+    <div class="jbr-tag-cloud" data-cloud-values="{{ tagList|tagListToStr }}" data-cloud-url-pat="{{ urlPat|replace('zzz', '{tag}') }}"></div>
+</div>

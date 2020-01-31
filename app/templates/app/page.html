@@ -1,0 +1,9 @@
+{% extends 'app/layout.html' %}
+
+{% block title %}{{ vars.title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ vars.title }}</h1>
+    <p>{{ vars.body }}</p>
+    <p>Why not take a look at the <a href="{{ url_for('bookmark.index') }}">bookmarks</a> page?</p>
+{% endblock %}

@@ -1,0 +1,22 @@
+/* app/mods/bookmark/static/style.css */
+
+
+.content ol.bm-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bm-list li {
+    clear: both;
+}
+
+.bm-list i {
+    margin-left: 5px;
+}
+
+.bm-meta {
+    display: none;
+    margin-left: 25px;
+    margin-bottom: 1em;
+}

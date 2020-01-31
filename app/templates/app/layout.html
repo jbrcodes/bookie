@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}(undefined){% endblock %} | Bookie</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bulma.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='jbr-tags.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bookie.css') }}">
+        {% block modHead %}{% endblock %}
+    </head>
+    <body>
+
+        <header>
+            {% include 'app/_primaryNav.html' %}
+        </header>
+        
+        
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% set catcls = {'success': 'is-success', 'error': 'is-danger'} %}
+                <section id="flash" class="section">
+                    <div class="container">
+                        <ul>
+                            {% for cat, msg in messages %}
+                                <li class="notification {{ catcls[cat] }}">{{ msg }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+            {% endif %}
+        {% endwith %}
+        
+        
+        <section class="section">
+            <div class="container">
+                <div class="columns content">
+                    <div class="column is-8">
+                        {% block body %}(undefined){% endblock %}
+                    </div>
+                    <div class="column">
+                        {% block sidebar %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <footer class="footer has-text-centered">
+            <div class="container">
+                (Footer stuff goes here. eep.)
+            </div>
+        </footer>
+        
+        
+        <script src="{{ url_for('static', filename='jbr-tags.js') }}"></script>
+        <script src="{{ url_for('static', filename='jbr-tags-bulma.js') }}"></script>
+        <script src="{{ url_for('static', filename='bookie.js') }}"></script>
+    </body>
+</html>

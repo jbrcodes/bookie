@@ -1,0 +1,62 @@
+/* === Tag === */
+
+
+.jbr-tag {
+    display: inline-block;
+    margin: 2px;
+    padding: 2px 5px;
+    border: 1px solid #ccc;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.jbr-tag-close {
+    display: inline-block;
+    line-height: 1em;
+    font-size: smaller;
+    padding: 1px 3px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.jbr-tag-close:hover {
+    background-color: #fff;
+}
+
+/* === Tag Cloud === */
+
+
+.jbr-tag-cloud {
+    display: flex;
+}
+
+.jbr-tag-cloud .jbr-tag:hover {
+    background-color: #aaa;
+}
+
+
+/* === Tag Field === */
+
+
+/* What the 'user' puts in the <input> tag */
+.jbr-tag-field {
+    
+}
+
+/* The <div> that holds it all */
+.jbr-tf-box {
+    display: flex;
+}
+
+/* Holds existing tags */
+.jbr-tf-cloud {
+    
+}
+
+/* <input> where new tags are entered */
+.jbr-tf-input {
+    width: auto;
+    min-width: 20%;
+}

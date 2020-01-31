@@ -1,0 +1,44 @@
+{% extends 'app/layout.html' %}
+
+{% set titulo = 'Debug' %}
+
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block body %}
+    <h1>{{ titulo }}</h1>
+    <p>Here we are doing some debugging... or maybe testing.
+    Or maybe experimenting.</p>
+
+
+    <h2>A couple of tags...</h2>
+
+    <div class="field is-grouped is-grouped-multiline">
+        
+        <div class="control">
+            <div class="tags has-addons">
+                <span class="tag is-primary">
+                one
+                </span>
+                <a class="tag is-delete"></a>
+            </div>
+        </div>
+
+        <div class="control">
+            <div class="tags has-addons">
+                <span class="tag is-primary">
+                sdfsdfsdfsdf
+                </span>
+                <a class="tag is-delete"></a>
+            </div>
+        </div>
+        
+        <div class="control">
+            <div class="tags has-addons">
+                <span class="tag is-primary">
+                Three Blind Mice
+                </span>
+                <a class="tag is-delete"></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

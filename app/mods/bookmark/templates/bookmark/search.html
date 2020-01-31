@@ -1,0 +1,26 @@
+{% extends 'app/layout.html' %}
+{% block title %}(Detailed) Search 4 Bookmark{% endblock %}
+
+{% block body %}
+    <h1>{{ self.title() }}</h1>
+
+    <form action="{{ url_for('bookmark.search') }}" method="post">
+
+        <div class="field">
+            <label class="label" for="text">Text</label>
+            <div class="control">
+                <input type="text" class="form-control" id="q" name="q">
+            </div>  
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" type="submit">Search</button>
+            </div>
+            <div class="control">
+                <a class="button is-light" href="{{ url_for('bookmark.index') }}">Cancel</a>
+            </div>
+        </div>
+
+    </form>
+{% endblock %}

@@ -1,0 +1,59 @@
+/* app/static/css/bookie.css */
+
+
+/* === global === */
+
+
+/* Default Bouma style is too "spacious" */
+table.jbr-compact {
+    width: auto;
+}
+
+table.jbr-compact th,
+table.jbr-compact td {
+    padding: 0.25em 0.75em;
+}
+
+
+/* === Bulma tags === */
+
+
+.jbr-tf-cloud {
+    margin-right: 0.75rem;
+}
+
+
+/* === header === */
+
+
+.navbar-brand a {
+    font-weight: bold;
+}
+
+
+/* === #flash === */
+
+
+#flash {
+    padding-bottom: 0;
+}
+
+#flash ul {
+    list-style-type: none;
+}
+
+
+/* === #sidebar === */
+
+
+#sidebar {
+    margin-top: 3rem;    
+}
+
+
+/* === footer === */
+
+
+footer.footer {
+    padding: 2rem;
+}

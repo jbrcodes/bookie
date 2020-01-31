@@ -1,0 +1,7 @@
+{% extends 'app/layout.html' %}
+{% block title %}Edit Bookmark{% endblock %}
+
+{% block body %}
+    <h1>{{ self.title() }}</h1>
+    {% include 'bookmark/_form.html' %}
+{% endblock %}

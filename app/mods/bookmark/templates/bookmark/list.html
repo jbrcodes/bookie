@@ -1,0 +1,73 @@
+{% extends 'app/layout.html' %}
+
+{% from 'app/macros/modal.html' import makeModal %}
+
+{% macro showMeta(bm) %}
+    <table class="jbr-compact">
+        <tbody>
+            <tr>
+                <th>URL</th>
+                <td>{{ bm.url }} </td>
+            </tr>
+            {% if bm.note %}
+                <tr>
+                    <th>note</th>
+                    <td>{{ bm.note }} </td>
+                </tr>
+            {% endif %}
+            <tr>
+                <th>visits</th>
+                <td>{{ bm.visitCount }} </td>
+            </tr>
+            {% if bm.visitCount > 0 %}
+                <tr>
+                    <th>last visit</th>
+                    <td>{{ bm.lastVisitStamp|formatStamp }} </td>
+                </tr>
+            {% endif %}
+            <tr>
+                <th>tags</th>
+                <td class="jbr-tag-cloud" data-cloud-values="{{ bm.tags|tagListToStr }}"></td>
+            </tr>
+        </tbody>
+    </table>
+{% endmacro %}
+
+{% macro showButtons(bm) %}
+    <div>
+        <a class="button is-small" href="{{ url_for('bookmark.edit', id=bm.id) }}">edit</a>
+        {% set modalId = 'bm-modal-' ~ bm.id %}
+        {% set delUrl = url_for('bookmark.delete', id=bm.id) %}
+        <a class="button is-small jbr-modal" data-jbr-target="{{ modalId }}" href="#">delete</a>
+        {{ makeModal(modalId, 'Really delete the bookmark?', 'Delete', delUrl) }}
+    </div>
+{% endmacro %}
+
+{% block modHead %}
+    <link rel="stylesheet" href="{{ url_for('bookmark.static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block title %}Bookmarks Index{% endblock %}
+
+{% block body %}
+
+    <h1>Bookmarks Index</h1>
+
+    <ol class="bm-list">
+        {% for bm in bookmarks -%}
+            <li>
+                <a class="content is-large" href="{{ url_for('bookmark.visit', id=bm.id) }}">{{ bm.title }}</a>
+                <i class="plus-minus fa fa-plus-square-o" data-toggle="bm-meta-{{ bm.id }}"></i>
+                <div id="bm-meta-{{ bm.id }}" class="bm-meta">
+                    {{ showMeta(bm) }}
+                    {{ showButtons(bm) }}
+                </div>
+            </li>
+        {%- endfor %}
+    </ol>
+
+{% endblock body %}
+
+{% block sidebar %}
+    {% include 'bookmark/_sidebar.html' %}
+{% endblock %}
